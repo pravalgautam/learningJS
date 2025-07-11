@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Profile</title>
+  <style>
+    body {
+      background-color: #212121;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+    }
+    .info {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <img id="avatar" src="" alt="Profile Picture" />
+  <div class="info">
+    <p id="followers">Followers: </p>
+    <p id="following">Following: </p>
+  </div>
+<!-- // XMLHttpRequest -->
+  <script>
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', "https://api.github.com/users/pravalgautam");
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        const data = JSON.parse(this.responseText);
+
+        // Update DOM elements with API data
+        document.getElementById('avatar').src = data.avatar_url;
+        document.getElementById('followers').textContent = `Followers: ${data.followers}`;
+        document.getElementById('following').textContent = `Following: ${data.following}`;
+      }
+    };
+
+    xhr.send();
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>praval</h1>
+        <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    const praval = function(){
+        console.log("praval")
+    }
+  
+     const nameChange = function (){
+    document.querySelector("h1").innerHTML = "gautam"
+}
+
+ const changeME =  setTimeout(nameChange,2000)
+ document.querySelector('button').addEventListener('click',function(){
+     clearTimeout(changeME)
+ })
+
+ // assignment
+ //setInterval
+let sayDate;
+
+ document.querySelector('#start').addEventListener('click',function(){
+saydate1 = setInterval(sayDate,2000)
+     console.log("start clicked")
+ 
+ })
+  document.querySelector('#stop').addEventListener('click',function(){
+     clearInterval(sayDate1)
+     console.log("stop clicked")
+ })
+
+
+</script>
+</html>
